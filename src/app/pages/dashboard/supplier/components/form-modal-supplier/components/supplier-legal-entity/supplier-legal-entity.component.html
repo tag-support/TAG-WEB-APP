@@ -1,0 +1,117 @@
+<form [formGroup]="userForm">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" placeholder="Nombre" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input matInput type="text" placeholder="Teléfono" formControlName="phone">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="email" placeholder="Correo electrónico" formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Confirmar correo electrónico</mat-label>
+            <input matInput type="email" placeholder="Confirmar correo electrónico" formControlName="confirm_email">
+        </mat-form-field>
+    </div>
+
+    <div class="row-full">
+        <mat-form-field appearance="outline">
+            <mat-label>Cargo</mat-label>
+            <input matInput type="text" placeholder="Cargo" formControlName="companyPosition">
+        </mat-form-field>
+    </div>
+
+    <div class="row" *ngIf="!edit">
+        <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" placeholder="Contraseña" formControlName="password"
+                autocomplete="new-password">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput type="password" placeholder="Confirmar contraseña" formControlName="confirm_password"
+                autocomplete="new-password">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre de la empresa</mat-label>
+            <input matInput type="text" placeholder="Nombre de la empresa">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>NIT</mat-label>
+            <input matInput type="text" placeholder="NIT">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>¿Permite plazo de pago?</mat-label>
+            <mat-select placeholder="Seleccionar">
+                <mat-option [value]="true">Si</mat-option>
+                <mat-option [value]="false">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Banco</mat-label>
+            <mat-select placeholder="Seleccionar">
+                <mat-option [value]="true">Si</mat-option>
+                <mat-option [value]="false">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo de cuenta</mat-label>
+            <mat-select placeholder="Seleccionar">
+                <mat-option [value]="true">Si</mat-option>
+                <mat-option [value]="false">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Número de cuenta</mat-label>
+            <input matInput type="text" placeholder="Número de cuenta">
+        </mat-form-field>
+    </div>
+
+    <div class="row-full">
+        <h3>¿Maneja descuentos?</h3>
+        <mat-form-field appearance="outline">
+            <mat-label>Descuento de entrada</mat-label>
+            <input matInput type="text" placeholder="0000">
+        </mat-form-field>
+    </div>
+
+    <p>Descuentos sobre monto total</p>
+
+    <div class="row-double">
+        <mat-form-field appearance="outline">
+            <mat-label>Minimo</mat-label>            
+            <input matInput type="text" placeholder="0000">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Minimo</mat-label>
+            <input matInput type="text" placeholder="0000">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Descuento</mat-label>
+            <input matInput type="text" placeholder="0000">
+        </mat-form-field>
+    </div>
+
+    <div class="row-full">
+        <button mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            Nueva rango de descuento
+        </button>
+    </div>
+</form>

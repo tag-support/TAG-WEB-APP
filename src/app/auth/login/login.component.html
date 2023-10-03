@@ -1,0 +1,23 @@
+<div class="login-container">
+    <form [formGroup]="credentials">
+        <h2>Iniciar sesión</h2>
+        <div class="input">
+            <div class="text_input">Nombre o Correo electrónico</div>
+            <mat-form-field class="input-mat" appearance="outline">
+                <input type="email" matInput placeholder="Correo" formControlName="email">
+            </mat-form-field>
+        </div>
+        <div class="input" style="margin-bottom: 0;">
+            <div class="text_input">Contraseña</div>
+            <mat-form-field class="input-mat" appearance="outline">
+                <input type="password" matInput placeholder="Contraseña" (keydown.enter)="login()" formControlName="password">
+            </mat-form-field>
+        </div>
+        <h5>¿Olvidaste tu contraseña?</h5>
+        <div class="button-css">
+            <button mat-raised-button type="button" (click)="login()" color="primary">Iniciar
+                sesión</button>
+            <h4>¿Aún no tienes una cuenta? <span class="text_page">Regístrate ahora</span></h4>
+        </div>
+    </form>
+</div>

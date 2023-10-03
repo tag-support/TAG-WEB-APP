@@ -1,0 +1,151 @@
+<div mat-dialog-title>
+    <h3 *ngIf="!view">{{data.company ? 'Editar': 'Crear'}} empresa</h3>
+    <h3 *ngIf="view">Ver empresa</h3>
+</div>
+<form [formGroup]="empForm">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre de la empresa</mat-label>
+                <input matInput type="text" placeholder="Nombre" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo de empresa</mat-label>
+                <mat-select formControlName="companyType" placeholder="Seleccionar">
+                    <mat-option *ngFor="let val of userType" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Página Web</mat-label>
+                <input matInput type="text" placeholder="Página Web" formControlName="webUrl">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo de persona juridica</mat-label>
+                <mat-select formControlName="legalCapacity" placeholder="Seleccionar">
+                    <mat-option *ngFor="let val of typeCompany" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo de documento</mat-label>
+                <mat-select formControlName="documentType" placeholder="Seleccionar">
+                    <mat-option *ngFor="let val of documentType" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Numero de Documento</mat-label>
+                <input matInput type="text" placeholder="Documento" formControlName="nit">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Pais</mat-label>
+                <mat-select formControlName="country" placeholder="Seleccionar">
+                    <mat-option *ngFor="let val of listCountry" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Ciudad</mat-label>
+                <mat-select formControlName="city" placeholder="Seleccionar">
+                    <mat-option *ngFor="let val of listCity" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Direccion de despacho o entrega</mat-label>
+                <input matInput type="text" placeholder="Dirección" formControlName="deliveryAddress">
+            </mat-form-field>
+            <mat-form-field appearance="outline" (click)="downloadFile('dniRepresentativeDocument')" [style]="view ? 'cursor: pointer;' : ''">
+                <mat-label>Cedula representate legal</mat-label>
+                <button mat-icon-button matPrefix (click)="getDNI.click()" [disabled]="view">
+                    <mat-icon>attach_file</mat-icon>
+                </button>
+                <input type="text" readonly matInput formControlName="dniRepresentativeDocument"
+                    placeholder="Seleccionar Archivo">
+                <input hidden accept=".pdf" (change)="onDniRepresentativeDocument($event)" #getDNI type="file">
+                <button *ngIf="fileDNI && !view" matSuffix mat-icon-button aria-label="Clear"
+                    (click)="clearDniRepresentativeDocument()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline" (click)="downloadFile('commerceChamberDocument')" [style]="view ? 'cursor: pointer;' : ''">
+                <mat-label>Camara de comercio</mat-label>
+                <button mat-icon-button matPrefix (click)="getFileCamaraComercio.click()" [disabled]="view">
+                    <mat-icon>attach_file</mat-icon>
+                </button>
+                <input type="text" readonly matInput formControlName="commerceChamberDocument"
+                    placeholder="Seleccionar Archivo" />
+                <input hidden accept=".pdf" (change)="onCommerceChamberDocument($event)" #getFileCamaraComercio
+                    type="file">
+                <button *ngIf="fileCamaraComercio  && !view" matSuffix mat-icon-button aria-label="Clear"
+                    (click)="clearCommerceChamberDocument()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Correo de facturacion electrónica</mat-label>
+                <input matInput type="email" placeholder="Correo" formControlName="billingEmail">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline" (click)="downloadFile('rutCompanyDocument')" [style]="view ? 'cursor: pointer;' : ''">
+                <mat-label>Documento de identificación empresarial</mat-label>
+                <button mat-icon-button matPrefix (click)="getFileRUT.click()" [disabled]="view">
+                    <mat-icon>attach_file</mat-icon>
+                </button>
+                <input type="text" readonly matInput formControlName="rutCompanyDocument"
+                    placeholder="Seleccionar Archivo" />
+                <input hidden accept=".pdf" (change)="onRutCompanyDocument($event)" #getFileRUT type="file">
+                <button *ngIf="fileRUT  && !view" matSuffix mat-icon-button aria-label="Clear"
+                    (click)="clearRutCompanyDocument()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>¿Responsable de empresa?</mat-label>
+                <mat-select formControlName="ivaResponsable" placeholder="Seleccionar">
+                    <mat-option [value]="1">Si</mat-option>
+                    <mat-option [value]="0">No</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>¿Gran contribuyente?</mat-label>
+                <mat-select formControlName="taxPayer" placeholder="Seleccionar">
+                    <mat-option [value]="1">Si</mat-option>
+                    <mat-option [value]="0">No</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>¿Autoretenedor?</mat-label>
+                <mat-select formControlName="selfRetaining" placeholder="Seleccionar">
+                    <mat-option [value]="1">Si</mat-option>
+                    <mat-option [value]="0">No</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action" *ngIf="!view">
+        <button mat-raised-button color="primary" (click)="saveData()">{{data.company ? 'Actualizar': 'Crear'}}</button>
+    </div>
+</form>

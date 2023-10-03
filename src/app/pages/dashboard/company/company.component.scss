@@ -1,0 +1,35 @@
+.nav {
+    padding: 2em;
+    height: auto;
+
+    .items {
+        display: flex;
+        justify-content: space-between;
+        justify-content: center;
+        padding: 1rem 0;
+
+        .left-item {
+            flex: 1;
+            .title{
+                font-size: 32px;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+        }
+
+        .right-item{
+            button {
+                padding: 1.7em 2em;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            mat-form-field  {
+                margin-left: 1.5em;
+            }
+        }
+    }
+
+    table {
+        height: 80%;
+    }
+}

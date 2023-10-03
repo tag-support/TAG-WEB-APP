@@ -1,0 +1,17 @@
+<body>
+    <mat-grid-list [cols]="!(isHandset$ | async) ? 2 : 1" rowHeight="100vh">
+        <mat-grid-tile class="column-2" *ngIf="!(isHandset$ | async)">
+            <div class="info_login">
+                <button mat-fab color="primary" (click)="home()" aria-label="Example icon button with a delete icon">
+                    <mat-icon>home</mat-icon>
+                </button>
+                <div class="logo">
+                    <h1>TAG</h1>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <app-login></app-login>
+        </mat-grid-tile>
+    </mat-grid-list>
+</body>

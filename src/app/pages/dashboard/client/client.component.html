@@ -1,0 +1,20 @@
+<div class="nav">
+    <div class="items">
+        <div class="left-item">
+            <div class="title">USUARIOS · <span>CLIENTES</span></div>
+        </div>
+        <div class="right-item">
+            <button mat-raised-button color="primary" (click)="openAddCompany()">
+                <mat-icon>add</mat-icon>
+                Nuevo cliente
+            </button>
+            <mat-form-field appearance="outline">
+                <input matInput type="search" placeholder="Buscar" class="search-input">
+                <mat-icon matPrefix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div>
+        <app-list-client [listUser]="listActuales" [columns]="displayedColumns" [tabs]="true" (deleteId)="deleteClient($event)" (loadTable)="loadClient()" ></app-list-client>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+.content {
+    padding-top: 10px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+
+    mat-form-field {
+        width: 25em;
+
+        mat-label {
+            font-size: small;
+            padding-right: 1em;
+        }
+    }
+}
+
+
+.row-full{
+    text-align: center;
+    h3{
+        font-size: 25px;
+        margin: 1em 0;
+    }
+
+    mat-form-field {
+        width: 100%;
+
+        mat-label {
+            font-size: small;
+            padding-right: 1em;
+        }
+    }
+
+    button {
+        border-radius: 20px;
+        padding: 1.5em 2em;
+        font-size: 16px;
+        font-weight: 600;
+        flex: 1;
+    }
+}
+.action {
+    padding: 1em 1em 1em;
+
+    button {
+        border-radius: 20px;
+        padding: 1.5em 0;
+        font-size: 16px;
+        font-weight: 600;
+        flex: 1;
+    }
+}
+
+
+.row-marcas{
+    display: flex;
+    gap: 10px;
+    mat-form-field {
+        width: 23em;
+        mat-label {
+            font-size: small;
+            padding-right: 1em;
+        }
+    }
+
+    .none{
+        width: 3.5em;
+    }
+
+    button {
+        border-radius: 20px;
+        padding: 0.5em 1em; /* Ajusta el espaciado vertical y horizontal */
+        font-size: 14px; /* Ajusta el tamaño de la fuente */
+        font-weight: 600;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;/* Cambia el color de fondo */
+    }
+}

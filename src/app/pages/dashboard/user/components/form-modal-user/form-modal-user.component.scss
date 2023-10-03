@@ -1,0 +1,53 @@
+.dialog-title{
+    text-align: center;
+
+    h3{
+        font-size: 25px;
+    }
+}
+
+.content {
+    padding-top: 10px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+
+    mat-form-field {
+        width: 25em;
+
+        mat-label {
+            font-size: small;
+            padding-right: 1em;
+        }
+    }
+}
+
+
+.row-full{
+
+    .select-rol{
+        width: 50.5em;
+    }
+
+    mat-form-field {
+        width: 100%;
+
+        mat-label {
+            font-size: small;
+            padding-right: 1em;
+        }
+    }
+}
+.action {
+    padding: 1em 1em 1em;
+
+    button {
+        border-radius: 20px;
+        padding: 1.5em 0;
+        font-size: 16px;
+        font-weight: 600;
+        flex: 1;
+    }
+}

@@ -1,0 +1,34 @@
+<form [formGroup]="userForm">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" placeholder="Nombre" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <input matInput type="text" placeholder="Teléfono" formControlName="phone" minlength="10" maxlength="10">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Correo electrónico</mat-label>
+                <input matInput type="email" placeholder="Correo electrónico" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Confirmar correo electrónico</mat-label>
+                <input matInput type="email" placeholder="Confirmar correo electrónico" formControlName="confirm_email">
+            </mat-form-field>
+        </div>
+
+        <div class="row" *ngIf="!edit">
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" placeholder="Contraseña" formControlName="password" autocomplete="new-password">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Confirmar contraseña</mat-label>
+                <input matInput type="password" placeholder="Confirmar contraseña" formControlName="confirm_password" autocomplete="new-password">
+            </mat-form-field>
+        </div>
+</form>

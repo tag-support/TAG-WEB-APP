@@ -1,0 +1,31 @@
+<div class="nav">
+    <div class="items">
+        <div class="left-item">
+            <div class="title">USUARIOS · <span>PROVEEDORES</span></div>
+        </div>
+        <div class="right-item">
+            <button mat-raised-button color="primary" (click)="openAddCompany()">
+                <mat-icon>add</mat-icon>
+                Nuevo proveedor
+            </button>
+            <mat-form-field appearance="outline">
+                <input matInput type="search" placeholder="Buscar" class="search-input">
+                <mat-icon matPrefix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div>
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="0ms">
+            <mat-tab label="Actuales">
+                <div class="table_nav">
+                    <app-list-supplier [listUser]="listActuales" [columns]="displayedColumns" [tabs]="true" (deleteId)="deleteClient($event)" (loadTable)="loadClient()" ></app-list-supplier>
+                </div>
+            </mat-tab>
+            <mat-tab label="Solicitudes">
+                <div class="table_nav">
+                    <app-list-supplier [listUser]="listSolicitudes" [columns]="displayedColumns" [tabs]="false" (deleteId)="deleteClient($event)" (loadTable)="loadClient()" ></app-list-supplier>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

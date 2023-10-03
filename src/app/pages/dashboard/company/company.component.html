@@ -1,0 +1,72 @@
+<div class="nav">
+
+    <div class="items">
+        <div class="left-item">
+            <div class="title">EMPRESAS</div>
+        </div>
+        <div class="right-item">
+            <button mat-raised-button color="primary" (click)="openAddCompany()">
+                <mat-icon>add</mat-icon>
+                Nueva Empresa
+            </button>
+            <mat-form-field appearance="outline">
+                <input matInput type="search" placeholder="Buscar" class="search-input">
+                <mat-icon matPrefix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div>
+        <table mat-table [dataSource]="listCompany" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="#">
+                <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+                <mat-cell *matCellDef="let element" >
+                    <mat-slide-toggle color="warn" [checked]="element.isActive" (change)="changeIsActive(element.id)"></mat-slide-toggle>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let element">    	
+                    {{element.name}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="tipoId">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo ID </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.companyType}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="nit">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Identificación </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nit}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="billingEmail">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Correo electrónico </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.billingEmail}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="tipo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.companyType}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="detalles">
+                <mat-header-cell *matHeaderCellDef>Detalles</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" (click)="openEditForm(element, true)">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="openEditForm(element)">
+                        <mat-icon>edit_outline</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="deleteEmployee(element.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<table mat-table [dataSource]="listUser" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            {{element.contactName}}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Correo electrónico </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.contactPersonEmail}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.contactPersonPhone}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rol">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Rol </mat-header-cell>
+        <mat-cell *matCellDef="let element"> Cliente </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="detalles">
+        <mat-header-cell *matHeaderCellDef>Detalles</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <div *ngIf="!tabs">
+                <button mat-button color="primary" (click)="openEditForm(element)">
+                    <mat-icon>edit_outline</mat-icon>
+                </button>
+                <button mat-button color="primary" (click)="deleteSupplier(element.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+            <div *ngIf="tabs">
+                <button mat-button color="primary" (click)="openViewForm(element, true)">
+                    <mat-icon>person_add</mat-icon>
+                </button>
+            </div>
+            
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+</table>

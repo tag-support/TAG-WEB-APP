@@ -1,0 +1,24 @@
+<div mat-dialog-title class="dialog-title">
+    <h3>{{data ? 'Editar': 'Nuevo'}} proveedor</h3>
+</div>
+
+<div mat-dialog-content class="content">
+    <div class="row-full">
+        <mat-form-field class="select-rol" appearance="outline">
+            <mat-label>Tipo de Rol</mat-label>
+            <mat-select placeholder="Seleccionar" [(ngModel)]="name">
+                <mat-option *ngFor="let val of listSupplierSelect" [value]="val.value">{{val.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="dialog-title" *ngIf="name" style="padding-bottom: 2em;">
+        <h3>Información de Usuario</h3>
+    </div>
+    <app-supplier-legal-entity *ngIf="name === 'PPN'" [userForm]="userForm" [edit]="edit" ></app-supplier-legal-entity>
+    <app-supplier-natural-person *ngIf="name === 'PPJ'" [userForm]="userForm" [edit]="edit" ></app-supplier-natural-person>
+</div>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button color="primary" (click)="saveData()">{{data ? 'Actualizar': 'Crear'}}</button>
+    <button mat-raised-button color="primary" (click)="saveData()">{{data ? 'Actualizar': 'Crear'}}</button>
+</div>

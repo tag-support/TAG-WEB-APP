@@ -1,0 +1,70 @@
+<form [formGroup]="userForm">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" placeholder="Nombre" formControlName="name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Número de cédula</mat-label>
+        <input matInput type="text" placeholder="Número de cédula" formControlName="dni"  minlength="9" maxLength="9">
+      </mat-form-field>
+    </div>
+  
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput type="email" placeholder="Correo electrónico" formControlName="email">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirmar correo electrónico</mat-label>
+        <input matInput type="email" placeholder="Confirmar correo electrónico" formControlName="confirm_email">
+      </mat-form-field>
+    </div>
+  
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <input matInput type="text" placeholder="Cargo" formControlName="companyPosition">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Teléfono</mat-label>
+        <input matInput type="text" placeholder="Teléfono" formControlName="phone" minlength="10" maxlength="10">
+      </mat-form-field>
+    </div>
+  
+    <div class="row" *ngIf="!edit">
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" placeholder="Contraseña" formControlName="password" autocomplete="new-password">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirmar contraseña</mat-label>
+        <input matInput type="password" placeholder="Confirmar contraseña" formControlName="confirm_password"
+          autocomplete="new-password">
+      </mat-form-field>
+    </div>
+  
+    
+    <div class="row-full">
+      <h3>Clientes</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>Agregar Clientes</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Clientes">
+          <mat-chip-row *ngFor="let user of selectedUser" (removed)="remove(user)">
+            {{user.contactName}}
+            <button matChipRemove [attr.aria-label]="'remover ' + user" >
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        </mat-chip-grid>
+        <input placeholder="Nuevos Clientes..." [formControl]="userCtrl" [matChipInputFor]="chipGrid"
+          [matAutocomplete]="auto" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let user of userList" [value]="user">
+            <mat-checkbox [checked]="checkSeledUser(user)">{{user.contactName}}</mat-checkbox>          
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </form>

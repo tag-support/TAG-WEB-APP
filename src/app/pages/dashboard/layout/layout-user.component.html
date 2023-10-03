@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <button (click)="drawer.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1>TAG</h1>
+  <span class="example-spacer"></span>
+  <button mat-icon-button (click)="cerrarSesion()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-drawer-container autosize>
+  <mat-drawer style="width: 17em;" #drawer opened="true" mode="side" position="start">
+    <ng-material-multilevel-menu [configuration]='config' [items]='appitems' (selectedItem)="selectedItem($event)">
+    </ng-material-multilevel-menu>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="min-height: 95vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

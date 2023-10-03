@@ -1,0 +1,73 @@
+.content {
+    padding-top: 10px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+
+    mat-form-field {
+        width: 25em;
+
+        mat-label {
+            font-size: small;
+            padding-right: 1em;
+        }
+    }
+}
+
+p {
+    margin-bottom: 1.5em;
+}
+
+.row-double {
+    display: flex;
+    gap: 20.5px;
+
+    mat-form-field {
+        width: 16em;
+
+        mat-label {
+            font-size: small;
+            padding-right: 1em;
+        }
+    }
+}
+
+
+.row-full {
+    text-align: center;
+
+    h3 {
+        margin: 1em 0;
+    }
+
+    mat-form-field {
+        width: 100%;
+
+        mat-label {
+            font-size: small;
+            padding-right: 1em;
+        }
+    }
+
+    button {
+        border-radius: 20px;
+        padding: 1.5em 2em;
+        font-size: 16px;
+        font-weight: 600;
+        flex: 1;
+    }
+}
+
+.action {
+    padding: 1em 1em 1em;
+
+    button {
+        border-radius: 20px;
+        padding: 1.5em 0;
+        font-size: 16px;
+        font-weight: 600;
+        flex: 1;
+    }
+}
